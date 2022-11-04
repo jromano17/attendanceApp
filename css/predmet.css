@@ -1,7 +1,8 @@
 #meni > ul > li{
     display: inline-block;
-    margin: 1em 5em 0 1em;
+    margin: 0 5em 0 0;
     vertical-align: top;
+    align-content: center;
 }
 .rs_1, .rs_2, .bsc_1, .bsc_2, .bsc_3, .msc_1, .msc_2{
     display:grid;
@@ -15,3 +16,9 @@
     top: 0;
     background-color:darkturquoise;
   }
+.izborni{
+    background-color: powderblue;
+}
+.ne_ide{
+    background-color: grey;
+}
