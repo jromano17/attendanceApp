@@ -1,0 +1,10 @@
+#meni > ul > li{
+    display: inline-block;
+}
+.rs_1, .rs_2, .bsc_1, .bsc_2, .bsc_3{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    
+}
