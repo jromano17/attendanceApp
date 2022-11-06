@@ -1,8 +1,51 @@
+/*da ne prekriva sticky*/
+html{
+   /*scroll-padding-top:90px;*/
+   scroll-padding-top: 5.62em;
+}
+/*body{
+    background-color: #ae37ff;
+}
+#ri{
+    background-color: #dba5ff;
+}
+#ee{
+    background-color: #d291ff;
+}
+#ae{
+    background-color: #c673ff;
+}
+#tk{
+    background-color: #ba55ff;
+}*/
+@media (max-width: 300px){
+    .rs_1, .rs_2, .bsc_1, .bsc_2, .bsc_3, .msc_1, .msc_2{
+        display:grid;
+        grid-template-columns: 1;
+        grid-row-gap: 10px; 
+        overflow:auto;
+        white-space: nowrap;
+    }
+}
+@media   (max-width: 66.6em) {
+    #meni > ul {
+      display:grid;
+    }
+    html{
+        scroll-padding-top: 15em;
+    }
+    body #meni{
+        position: static;
+    }
+}
 #meni > ul > li{
     display: inline-block;
     margin: 0 5em 0 0;
     vertical-align: top;
     align-content: center;
+}
+#meni > ul > li > ul{
+    list-style-type: none;
 }
 .rs_1, .rs_2, .bsc_1, .bsc_2, .bsc_3, .msc_1, .msc_2{
     display:grid;
@@ -11,10 +54,10 @@
     grid-row-gap: 10px; 
 }
 #meni {
-    position: -webkit-sticky; /* Safari */
+    /*position: -webkit-sticky;  Safari */
     position: sticky;
     top: 0;
-    background-color:darkturquoise;
+    background-color: #ae37ff;
   }
 .izborni{
     background-color: powderblue;
