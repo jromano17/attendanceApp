@@ -2,4 +2,26 @@
 #tabela,th,td {
     border: 1px solid black;
     border-collapse: collapse;
+    padding: 0.5em;
+    column-width: 3em;
+}
+.prisutan{
+    background-color: green;
+    height: auto;
+}
+.neprisutan{
+    background-color: red; 
+    height: auto;
+
+}
+.nepopunjeno{
+    background-color: white;
+    height: auto;
+}
+.zadnja-kolona{
+    width:30%;
+}
+table tr { 
+    overflow: hidden;
+    height: 3em;
 }
