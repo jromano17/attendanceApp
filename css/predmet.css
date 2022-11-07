@@ -32,7 +32,7 @@ html{
       display:grid;
     }
     html{
-        scroll-padding-top: 15em;
+        scroll-padding-top: 0;
     }
     body #meni{
         position: static;
