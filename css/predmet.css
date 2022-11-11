@@ -1,11 +1,10 @@
-/*da ne prekriva sticky*/
 html{
-   /*scroll-padding-top:90px;*/
-   scroll-padding-top: 5.62em;
+   /*scroll-padding-top: 5.62em;*/
+   scroll-padding-top: 6.9em;
 }
-/*body{
-    background-color: #ae37ff;
-}
+body{
+    background-color: #cb9360;    ;
+}/*
 #ri{
     background-color: #dba5ff;
 }
@@ -21,7 +20,7 @@ html{
 @media (max-width: 300px){
     .rs_1, .rs_2, .bsc_1, .bsc_2, .bsc_3, .msc_1, .msc_2{
         display:grid;
-        grid-template-columns: 1;
+        /*grid-template-columns: 1; kaze validacija ne smije jedan arg*/
         grid-row-gap: 10px; 
         overflow:auto;
         white-space: nowrap;
@@ -43,6 +42,7 @@ html{
     margin: 0 5em 0 0;
     vertical-align: top;
     align-content: center;
+    text-align: left;
 }
 #meni > ul > li > ul{
     list-style-type: none;
@@ -52,13 +52,24 @@ html{
     grid-template-columns: repeat(auto-fit, 200px);
     grid-column-gap: 10px;
     grid-row-gap: 10px; 
+    grid-auto-rows: 1fr;
+}
+.rs_1 div, .rs_2 div, .bsc_1 div, .bsc_2 div, .bsc_3 div, .msc_1 div, .msc_2 div{
+    border: 1px solid #6F4E37;
 }
 #meni {
     /*position: -webkit-sticky;  Safari */
     position: sticky;
     top: 0;
-    background-color: #ae37ff;
+    /*background-color: #ae37ff;*/
+    background-color: #d2a277;
+    border: 1px solid #6F4E37;
+    text-align: center;  
   }
+.redovni{
+    height: 103.6px;
+    background-color: white;
+}
 .izborni{
     background-color: powderblue;
 }

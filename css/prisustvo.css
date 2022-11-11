@@ -1,4 +1,7 @@
 
+#tabela{
+    width: 90%;
+}
 #tabela,th,td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -24,4 +27,11 @@
 table tr { 
     overflow: hidden;
     height: 3em;
+}
+h1{
+    text-align: center;
+    border-bottom: 3px solid black;
+}
+h2,h3{
+    text-align: center;
 }
