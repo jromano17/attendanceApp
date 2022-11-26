@@ -1,9 +1,5 @@
 let TabelaPrisustvo = function (divRef, podaci) {
     divRef.innerHTML="";
-  /*
-    let prisustvo = TabelaPrisustvo(div, {studenti: [{ime:"Neko",index:12345}],
-     prisustva:[{sedmica:1,predavanja:1,vjezbe:1,index:12345}], predmet:"WT", brojPredavanjaSedmicno:3, brojVjezbiSedmicno:2});
-*/
     var brojSedmica = 0;
     for(let i = 0; i<podaci.prisustva.length; i++){
         if(podaci.prisustva[i].sedmica>brojSedmica) brojSedmica = podaci.prisustva[i].sedmica;
@@ -16,7 +12,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
     "<h3>Računarstvo i informatika</h3> "+
     " <table id=\"tabela\">"+
     "<tr>"+
-    "<th>Ime i prezime</th>"+
+    "<th class=\"ime_studenta\">Ime i prezime</th>"+
     "<th>Index</th>" ;
     for(let i = 0; i<brojSedmica-1; i++){
         htmlKod += "<th>" + rimskiBrojevi[i] + "</th>";
@@ -31,10 +27,16 @@ let TabelaPrisustvo = function (divRef, podaci) {
     if(brojKolonaTabele<17) brojKolonaTabele++;
     for(let i = 0; i<podaci.studenti.length; i++){
         htmlKod += "<tr>"+
-        "<td rowspan=\"2\">" + podaci.studenti[i].ime + "</td>"+
+        "<td rowspan=\"2\" class=\"ime_studenta\">" + podaci.studenti[i].ime + "</td>"+
         "<td rowspan=\"2\">" + podaci.studenti[i].index + "</td>";
         for(let j = 0; j<brojSedmica-1; j++){
-            htmlKod += "<td rowspan=\"2\">" + "100%" + "</td>";
+            var indeksZaProcente = podaci.prisustva.findIndex((el) => {
+                if(el.index == podaci.studenti[i].index && el.sedmica == j+1) return true; 
+                else return false;
+            });
+            var casovaPrisutan = podaci.prisustva[indeksZaProcente].predavanja + podaci.prisustva[indeksZaProcente].vjezbe;
+            var posto = 100*casovaPrisutan/brojCasova;
+            htmlKod += "<td rowspan=\"2\">" + posto + "%" + "</td>";
         }
         for(let j = 0; j<podaci.brojPredavanjaSedmicno; j++){
             htmlKod += "<td style=\"width: 0.5em;\">P <br> " + (j+1) + "</td>";

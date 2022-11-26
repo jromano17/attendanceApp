@@ -22,7 +22,10 @@
     height: auto;
 }
 .zadnja-kolona{
-    width:30%;
+    width:100%;
+}
+.ime_studenta{
+    width:10%;
 }
 table tr { 
     overflow: hidden;
