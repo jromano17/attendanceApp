@@ -9,6 +9,10 @@ function pozovi(){
             {
                 ime: "Drugi Neko",
                 index: 12346
+            },
+            {
+                ime: "Treci Neko",
+                index: 18875
             }
         ],
         prisustva: [{
