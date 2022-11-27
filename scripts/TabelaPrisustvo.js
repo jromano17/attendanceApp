@@ -2,15 +2,13 @@ function iscrtaj(divRef, podaci,trenutna) {
     divRef.innerHTML="";
     var nizUpisanihSedmica = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     for(let i = 0; i<podaci.prisustva.length; i++){
-        if(podaci.studenti.findIndex((el) => {return el.index == podaci.prisustva[i].index;})==-1){
+        if(podaci.studenti.findIndex((el) => {return el.index == podaci.prisustva[i].index;})==-1)
             return "Podaci o prisustvu nisu validni!";
-        } 
         nizUpisanihSedmica[podaci.prisustva[i].sedmica-1] = 1;
     }
     for(let i = 1; i<nizUpisanihSedmica.length-1;i++){
-        if(nizUpisanihSedmica[i]==0 && nizUpisanihSedmica[i-1]==1 && nizUpisanihSedmica[i+1]==1) {
+        if(nizUpisanihSedmica[i]==0 && nizUpisanihSedmica[i-1]==1 && nizUpisanihSedmica[i+1]==1)
             return "Podaci o prisustvu nisu validni!";
-        } 
     }
     var brojSedmica = 0;
     for(let i = 0; i<podaci.prisustva.length; i++){
@@ -35,16 +33,11 @@ function iscrtaj(divRef, podaci,trenutna) {
     }
     if(brojSedmica<14) htmlKod += "<th>" + rimskiBrojevi[brojSedmica] + " - XV </th>" ;
     else if(brojSedmica==14) htmlKod += "<th>XV</th>";
-
     htmlKod+="</tr>";
-    
-    var brojKolonaTabele = 2 + brojSedmica;
-    if(brojKolonaTabele<17) brojKolonaTabele++;
     for(let i = 0; i<podaci.studenti.length; i++){
         for(let k = 0; k<podaci.studenti.length; k++){
-            if(i!=k && podaci.studenti[i].index == podaci.studenti[k].index) {
+            if(i!=k && podaci.studenti[i].index == podaci.studenti[k].index)
                 return "Podaci o prisustvu nisu validni!";
-            }
         }
         htmlKod += "<tr>"+
         "<td rowspan=\"2\" class=\"ime_studenta\">" + podaci.studenti[i].ime + "</td>"+
@@ -62,11 +55,10 @@ function iscrtaj(divRef, podaci,trenutna) {
                 htmlKod += "<td rowspan=\"2\"> </td>";
                 continue;
             }
-            if(brojac>1 || podaci.prisustva[indeksZaProcente].predavanja>podaci.brojPredavanjaSedmicno || podaci.prisustva[indeksZaProcente].vjezbe>podaci.brojVjezbiSedmicno  || podaci.prisustva[indeksZaProcente].predavanja<0 || podaci.prisustva[indeksZaProcente].vjezbe<0) {
+            if(brojac>1 || podaci.prisustva[indeksZaProcente].predavanja>podaci.brojPredavanjaSedmicno || podaci.prisustva[indeksZaProcente].vjezbe>podaci.brojVjezbiSedmicno  || podaci.prisustva[indeksZaProcente].predavanja<0 || podaci.prisustva[indeksZaProcente].vjezbe<0)
                 return "Podaci o prisustvu nisu validni!";
-            }
             var casovaPrisutan = podaci.prisustva[indeksZaProcente].predavanja + podaci.prisustva[indeksZaProcente].vjezbe;
-            var posto = 100*casovaPrisutan/brojCasova;
+            var posto = Math.floor(100*casovaPrisutan/brojCasova);
             htmlKod += "<td rowspan=\"2\">" + posto + "%" + "</td>";
         }
         for(let j = 0; j<podaci.brojPredavanjaSedmicno; j++){
@@ -90,15 +82,12 @@ function iscrtaj(divRef, podaci,trenutna) {
                 htmlKod += "<td rowspan=\"2\"> </td>";
                 continue;
             }
-            if(brojac>1 || podaci.prisustva[indeksZaProcente].predavanja>podaci.brojPredavanjaSedmicno || podaci.prisustva[indeksZaProcente].vjezbe>podaci.brojVjezbiSedmicno  || podaci.prisustva[indeksZaProcente].predavanja<0 || podaci.prisustva[indeksZaProcente].vjezbe<0) {
+            if(brojac>1 || podaci.prisustva[indeksZaProcente].predavanja>podaci.brojPredavanjaSedmicno || podaci.prisustva[indeksZaProcente].vjezbe>podaci.brojVjezbiSedmicno  || podaci.prisustva[indeksZaProcente].predavanja<0 || podaci.prisustva[indeksZaProcente].vjezbe<0)
                 return "Podaci o prisustvu nisu validni!";
-            }
             var casovaPrisutan = podaci.prisustva[indeksZaProcente].predavanja + podaci.prisustva[indeksZaProcente].vjezbe;
-            var posto = 100*casovaPrisutan/brojCasova;
+            var posto = Math.floor(100*casovaPrisutan/brojCasova);
             htmlKod += "<td rowspan=\"2\">" + posto + "%" + "</td>";
         }
-
-
 
         if(brojSedmica!=15) htmlKod += "<td rowspan=\"2\" class=\"zadnja-kolona\"></td>";
         htmlKod += "</tr>" + 
@@ -154,7 +143,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
     let prethodnaSedmica = function () {
         if(trenutnaSedmica==1) return;
         trenutnaSedmica--;
-        htmlBilder = iscrtaj(divRef,podaci,trenutnaSedmica);
+        htmlBilder = iscrtaj(divRef,podaci,trenutnaSedmica) ;
         divRef.innerHTML = htmlBilder; 
         let leftBtn = document.createElement("button");
         leftBtn.innerHTML ="<i class=\"fa-solid fa-arrow-left\"></i>";
