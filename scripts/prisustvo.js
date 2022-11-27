@@ -36,6 +36,42 @@ let prisustvo = TabelaPrisustvo(div,{
             predavanja: 2,
             vjezbe: 0,
             index: 12346
+        },
+        {
+            sedmica: 3,
+            predavanja: 2,
+            vjezbe: 0,
+            index: 12346
+        },
+        {
+            sedmica: 3,
+            predavanja: 2,
+            vjezbe: 2,
+            index: 12345
+        },
+        {
+            sedmica: 3,
+            predavanja: 1,
+            vjezbe: 0,
+            index: 18875
+        },
+        {
+            sedmica: 5,
+            predavanja: 1,
+            vjezbe: 0,
+            index: 12345
+        },
+        {
+            sedmica: 5,
+            predavanja: 2,
+            vjezbe: 2,
+            index: 12346
+        },
+        {
+            sedmica: 5,
+            predavanja: 2,
+            vjezbe: 1,
+            index: 18875
         }
     ],
     predmet: "Razvoj mobilnih aplikacija",
