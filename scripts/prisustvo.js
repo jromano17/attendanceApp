@@ -62,7 +62,7 @@ let prisustvo = TabelaPrisustvo(div,{
             index: 12345
         },
         {
-            sedmica: 5,
+            sedmica: 4,
             predavanja: 2,
             vjezbe: 2,
             index: 12346

@@ -43,8 +43,7 @@ function iscrtaj(divRef, podaci,trenutna) {
     for(let i = 0; i<podaci.studenti.length; i++){
         for(let k = 0; k<podaci.studenti.length; k++){
             if(i!=k && podaci.studenti[i].index == podaci.studenti[k].index) {
-                divRef.innerHTML = "Podaci o prisustvu nisu validni!";
-                return;
+                return "Podaci o prisustvu nisu validni!";
             }
         }
         htmlKod += "<tr>"+
@@ -64,8 +63,7 @@ function iscrtaj(divRef, podaci,trenutna) {
                 continue;
             }
             if(brojac>1 || podaci.prisustva[indeksZaProcente].predavanja>podaci.brojPredavanjaSedmicno || podaci.prisustva[indeksZaProcente].vjezbe>podaci.brojVjezbiSedmicno  || podaci.prisustva[indeksZaProcente].predavanja<0 || podaci.prisustva[indeksZaProcente].vjezbe<0) {
-                divRef.innerHTML = "Podaci o prisustvu nisu validni!";
-                return;
+                return "Podaci o prisustvu nisu validni!";
             }
             var casovaPrisutan = podaci.prisustva[indeksZaProcente].predavanja + podaci.prisustva[indeksZaProcente].vjezbe;
             var posto = 100*casovaPrisutan/brojCasova;
@@ -93,8 +91,7 @@ function iscrtaj(divRef, podaci,trenutna) {
                 continue;
             }
             if(brojac>1 || podaci.prisustva[indeksZaProcente].predavanja>podaci.brojPredavanjaSedmicno || podaci.prisustva[indeksZaProcente].vjezbe>podaci.brojVjezbiSedmicno  || podaci.prisustva[indeksZaProcente].predavanja<0 || podaci.prisustva[indeksZaProcente].vjezbe<0) {
-                divRef.innerHTML = "Podaci o prisustvu nisu validni!";
-                return;
+                return "Podaci o prisustvu nisu validni!";
             }
             var casovaPrisutan = podaci.prisustva[indeksZaProcente].predavanja + podaci.prisustva[indeksZaProcente].vjezbe;
             var posto = 100*casovaPrisutan/brojCasova;
@@ -171,6 +168,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
 
     var htmlBilder = iscrtaj(divRef,podaci,trenutnaSedmica);
     divRef.innerHTML = htmlBilder; 
+    if(htmlBilder=="Podaci o prisustvu nisu validni!") return;
     let leftBtn = document.createElement("button");
     leftBtn.innerHTML ="<i class=\"fa-solid fa-arrow-left\"></i>";
     leftBtn.onclick = () =>  prethodnaSedmica();
