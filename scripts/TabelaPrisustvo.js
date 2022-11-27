@@ -1,5 +1,6 @@
 function iscrtaj(divRef, podaci,trenutna) {
     divRef.innerHTML="";
+    if(podaci.brojPredavanjaSedmicno<0 || podaci.brojVjezbiSedmicno<0) return "Podaci o prisustvu nisu validni!";
     var nizUpisanihSedmica = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     for(let i = 0; i<podaci.prisustva.length; i++){
         if(podaci.studenti.findIndex((el) => {return el.index == podaci.prisustva[i].index;})==-1)
