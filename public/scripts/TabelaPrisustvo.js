@@ -18,8 +18,8 @@ function iscrtaj(divRef, podaci,trenutna) {
     var rimskiBrojevi = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV"];
     var brojCasova = podaci.brojPredavanjaSedmicno + podaci.brojVjezbiSedmicno;
     var htmlKod;
-    htmlKod = "<h1>" + podaci.predmet + "</h1>";
-    htmlKod += "<h2>BSc 2</h2>"+
+    htmlKod = "<h1 id=\"nazivPredmeta\">" + podaci.predmet + "</h1>";
+    htmlKod += "<h2 id=\"smjer\">BSc 2</h2>"+
     "<h3>Računarstvo i informatika</h3> "+
     " <table id=\"tabela\">"+
     "<tr>"+

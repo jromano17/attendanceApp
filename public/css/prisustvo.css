@@ -31,10 +31,10 @@ table tr {
     overflow: hidden;
     height: 3em;
 }
-h1{
+#nazivPredmeta{
     text-align: center;
-    border-bottom: 3px solid black;
+    border-top: 3px solid black;
 }
-h2,h3{
+#smjer,h3{
     text-align: center;
 }

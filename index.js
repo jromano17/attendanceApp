@@ -92,13 +92,9 @@ app.get('/predmeti',function(req,res){
     }
 });
 
-app.get('/predmeti/:NAZIV',function(req,res){
-    console.log(req);
-    var nazivPredmeta = req.body.naziv;   
-    console.log(nazivPredmeta);
+app.get('/predmeti/:naziv',function(req,res){
+    var nazivPredmeta = req.params.naziv;
     var svaPrisustva = JSON.parse(fs.readFileSync('data/prisustva.json', 'utf-8'));
-    console.log(svaPrisustva);
-    res.setHeader('Content-Type','application/json');
     for (let i=0;i<svaPrisustva.length;i++){
         if(svaPrisustva[i].predmet==nazivPredmeta) res.json({lista:svaPrisustva[i]});
     }
