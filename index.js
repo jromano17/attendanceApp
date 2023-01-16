@@ -19,7 +19,11 @@ app.use(session({
 }));
 
 app.use(express.static('public'));
-
+app.use(express.static('public/html'));
+app.use(express.static('public/css'));
+app.use(express.static('public/scripts'));
+app.use(express.static('public/jpgs'));
+/*
 app.get('/predmet.html', function(req, res){
     res.sendFile("predmet.html",options);
 });
@@ -31,22 +35,15 @@ app.get('/prisustvo.html', function(req, res){
 app.get('/prijava.html',function(req, res){
     res.sendFile("prijava.html",options);
 });
-
+*/
 
 
 app.post('/login',function(req,res){
     var nastavnici = JSON.parse(fs.readFileSync('data/nastavnici.json', 'utf-8'));
     var username = req.body.username;
     var password = req.body.password;
-    var postojiNastavnik = false;
     var indeks = -1;
-    /*bcrypt.hash(password, 10, (err, hash) => {
-        if(err){
-        }
-        console.log(hash);
-        });
-        */
-
+    /*bcrypt.hash(password, 10, (err, hash) => {console.log(hash);});*/
     for (let i = 0; i < nastavnici.length; i++) {
         if (nastavnici[i].nastavnik.username==username) {
             indeks = i;
@@ -61,14 +58,50 @@ app.post('/login',function(req,res){
             if(ress) {
                 req.session.username = username;
                 req.session.predmeti = nastavnici[indeks].predmeti;
-                postojiNastavnik = true;
-                console.log("ovdje da:");
-                res.json({message: "Uspješna prijava"});
+                res.json({message: "Uspješna prijava"});  
             }
             else res.json({message: "Neuspješna prijava"});
         });
     }
-    
 });
+
+app.post('/logout',function(req,res){
+    req.session.destroy(function(err) {
+        if(err) {
+            console.log(err);
+            res.status(400).send();
+        }
+        else{        
+            //res.redirect('http://localhost:3000/prijava.html');  
+            res.send("Uspjesan logout");
+        }
+    }); 
+});
+
+app.get('/predmeti.html',function(req,res){
+    console.log("ovdjee");
+    res.sendFile("predmeti.html",options);
+});
+
+app.get('/predmeti',function(req,res){
+    if(req.session.username){
+        res.json({greska:"Nema greske", username:req.session.username, predmeti:req.session.predmeti});
+    }
+    else{
+        res.json({greska:"Nastavnik nije loginovan"});
+    }
+});
+
+app.get('/predmeti/:NAZIV',function(req,res){
+    console.log(req);
+    var nazivPredmeta = req.body.naziv;   
+    console.log(nazivPredmeta);
+    var svaPrisustva = JSON.parse(fs.readFileSync('data/prisustva.json', 'utf-8'));
+    console.log(svaPrisustva);
+    res.setHeader('Content-Type','application/json');
+    for (let i=0;i<svaPrisustva.length;i++){
+        if(svaPrisustva[i].predmet==nazivPredmeta) res.json({lista:svaPrisustva[i]});
+    }
+})
 
 app.listen(3000);
