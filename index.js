@@ -100,4 +100,36 @@ app.get('/predmeti/:naziv',function(req,res){
     }
 })
 
+app.post('/predmeti/:naziv/student/:index',function(req,res){
+    var nazivPredmeta = req.params.naziv;
+    var index = req.params.index;
+    var sedmica = req.body.sedmica;
+    var vjezbe = req.body.vjezbe;
+    var predavanja = req.body.predavanja;
+    var svaPrisustva = JSON.parse(fs.readFileSync('data/prisustva.json', 'utf-8'));
+    var indeksPredmeta = -1;
+    var unesenoPrisustvo = false;
+    var zabiljezenaPrisustvaPredmeta;
+    for (let i=0;i<svaPrisustva.length;i++){
+        if(svaPrisustva[i].predmet==nazivPredmeta){
+            indeksPredmeta = i;
+            zabiljezenaPrisustvaPredmeta = svaPrisustva[i].prisustva;
+            for (let j=0;j<zabiljezenaPrisustvaPredmeta.length;j++){
+                if(zabiljezenaPrisustvaPredmeta[j].index==index && zabiljezenaPrisustvaPredmeta[j].sedmica==sedmica) {
+                    unesenoPrisustvo = true;
+                    zabiljezenaPrisustvaPredmeta[j].predavanja = predavanja;                   
+                    zabiljezenaPrisustvaPredmeta[j].vjezbe = vjezbe;                   
+                }
+            }
+            break;
+        } 
+    }
+    if(!unesenoPrisustvo){
+        zabiljezenaPrisustvaPredmeta.push({sedmica:sedmica, predavanja: predavanja, vjezbe: vjezbe, index:index});
+    }
+    var noviJson = JSON.stringify(svaPrisustva);
+    fs.writeFileSync('data/prisustva.json', noviJson);
+    res.json({odgovor:svaPrisustva[indeksPredmeta]});
+})
+
 app.listen(3000);

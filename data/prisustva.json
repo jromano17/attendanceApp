@@ -1,6 +1,7 @@
 [
     {
-        "studenti": [{
+        "studenti": [
+            {
                 "ime": "Jalal Romano",
                 "index": 18875
             },
@@ -25,7 +26,8 @@
                 "index": 12349
             }
         ],
-        "prisustva": [{
+        "prisustva": [
+            {
                 "sedmica": 1,
                 "predavanja": 3,
                 "vjezbe": 2,
@@ -33,35 +35,34 @@
             },
             {
                 "sedmica": 3,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 2,
                 "index": 12346
             },
             {
                 "sedmica": 4,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 1,
                 "index": 12346
             },
             {
                 "sedmica": 5,
-                "predavanja": 3,
-                "vjezbe": 2,
-                "index": 12346
-            },
-            {
-                "sedmica": 6,
                 "predavanja": 1,
                 "vjezbe": 2,
                 "index": 12346
             },
             {
-                "sedmica": 7,
-                "predavanja": 0,
-                "vjezbe": 0,
+                "sedmica": 6,
+                "predavanja": 2,
+                "vjezbe": 1,
                 "index": 12346
             },
-            
+            {
+                "sedmica": 7,
+                "predavanja": 3,
+                "vjezbe": 2,
+                "index": 12346
+            },
             {
                 "sedmica": 1,
                 "predavanja": 3,
@@ -94,17 +95,16 @@
             },
             {
                 "sedmica": 6,
-                "predavanja": 2,
-                "vjezbe": 2,
-                "index": 12345
-            },
-            {
-                "sedmica": 7,
                 "predavanja": 0,
                 "vjezbe": 2,
                 "index": 12345
             },
-
+            {
+                "sedmica": 7,
+                "predavanja": 3,
+                "vjezbe": 2,
+                "index": 12345
+            },
             {
                 "sedmica": 1,
                 "predavanja": 3,
@@ -125,7 +125,7 @@
             },
             {
                 "sedmica": 4,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 0,
                 "index": 12347
             },
@@ -147,8 +147,6 @@
                 "vjezbe": 0,
                 "index": 12347
             },
-
-
             {
                 "sedmica": 1,
                 "predavanja": 1,
@@ -168,12 +166,6 @@
                 "index": 18875
             },
             {
-                "sedmica": 4,
-                "predavanja": 1,
-                "vjezbe": 0,
-                "index": 18875
-            },
-            {
                 "sedmica": 5,
                 "predavanja": 3,
                 "vjezbe": 2,
@@ -181,64 +173,58 @@
             },
             {
                 "sedmica": 6,
-                "predavanja": 2,
-                "vjezbe": 2,
+                "predavanja": 1,
+                "vjezbe": 1,
                 "index": 18875
             },
             {
                 "sedmica": 7,
-                "predavanja": 1,
-                "vjezbe": 2,
+                "predavanja": 3,
+                "vjezbe": 1,
                 "index": 18875
             },
-
-
-
             {
                 "sedmica": 1,
                 "predavanja": 0,
-                "vjezbe": 2,
+                "vjezbe": 1,
                 "index": 12348
             },
             {
                 "sedmica": 2,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 1,
                 "index": 12348
             },
             {
                 "sedmica": 3,
                 "predavanja": 3,
-                "vjezbe": 2,
+                "vjezbe": 1,
                 "index": 12348
             },
             {
                 "sedmica": 4,
-                "predavanja": 2,
+                "predavanja": 3,
                 "vjezbe": 1,
                 "index": 12348
             },
             {
                 "sedmica": 5,
-                "predavanja": 1,
-                "vjezbe": 1,
+                "predavanja": 2,
+                "vjezbe": 0,
                 "index": 12348
             },
             {
                 "sedmica": 6,
-                "predavanja": 0,
-                "vjezbe": 1,
+                "predavanja": 2,
+                "vjezbe": 0,
                 "index": 12348
             },
             {
                 "sedmica": 7,
-                "predavanja": 3,
-                "vjezbe": 0,
+                "predavanja": 2,
+                "vjezbe": 1,
                 "index": 12348
             },
-
-
-
             {
                 "sedmica": 1,
                 "predavanja": 2,
@@ -259,14 +245,14 @@
             },
             {
                 "sedmica": 5,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 2,
                 "index": 12349
             },
             {
                 "sedmica": 6,
-                "predavanja": 3,
-                "vjezbe": 2,
+                "predavanja": 0,
+                "vjezbe": 0,
                 "index": 12349
             },
             {
@@ -274,16 +260,27 @@
                 "predavanja": 3,
                 "vjezbe": 2,
                 "index": 12349
+            },
+            {
+                "sedmica": "3",
+                "predavanja": 3,
+                "vjezbe": 2,
+                "index": "12349"
+            },
+            {
+                "sedmica": "2",
+                "predavanja": 0,
+                "vjezbe": 1,
+                "index": "12346"
             }
         ],
         "predmet": "Logički dizajn",
         "brojPredavanjaSedmicno": 3,
         "brojVjezbiSedmicno": 2
     },
-
-
     {
-        "studenti": [{
+        "studenti": [
+            {
                 "ime": "Jalal Romano",
                 "index": 18875
             },
@@ -308,7 +305,8 @@
                 "index": 12349
             }
         ],
-        "prisustva": [{
+        "prisustva": [
+            {
                 "sedmica": 1,
                 "predavanja": 3,
                 "vjezbe": 2,
@@ -340,11 +338,10 @@
             },
             {
                 "sedmica": 7,
-                "predavanja": 0,
-                "vjezbe": 0,
+                "predavanja": 1,
+                "vjezbe": 1,
                 "index": 12346
             },
-            
             {
                 "sedmica": 1,
                 "predavanja": 3,
@@ -376,18 +373,11 @@
                 "index": 12345
             },
             {
-                "sedmica": 6,
-                "predavanja": 2,
-                "vjezbe": 2,
-                "index": 12345
-            },
-            {
                 "sedmica": 7,
-                "predavanja": 0,
-                "vjezbe": 2,
+                "predavanja": 1,
+                "vjezbe": 1,
                 "index": 12345
             },
-    
             {
                 "sedmica": 1,
                 "predavanja": 3,
@@ -402,8 +392,8 @@
             },
             {
                 "sedmica": 3,
-                "predavanja": 3,
-                "vjezbe": 0,
+                "predavanja": 0,
+                "vjezbe": 1,
                 "index": 12347
             },
             {
@@ -426,12 +416,10 @@
             },
             {
                 "sedmica": 7,
-                "predavanja": 2,
-                "vjezbe": 0,
+                "predavanja": 0,
+                "vjezbe": 1,
                 "index": 12347
             },
-    
-    
             {
                 "sedmica": 1,
                 "predavanja": 1,
@@ -470,13 +458,10 @@
             },
             {
                 "sedmica": 7,
-                "predavanja": 1,
-                "vjezbe": 2,
+                "predavanja": 0,
+                "vjezbe": 0,
                 "index": 18875
             },
-    
-    
-    
             {
                 "sedmica": 1,
                 "predavanja": 0,
@@ -515,13 +500,10 @@
             },
             {
                 "sedmica": 7,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 0,
                 "index": 12348
             },
-    
-    
-    
             {
                 "sedmica": 1,
                 "predavanja": 2,
@@ -536,8 +518,8 @@
             },
             {
                 "sedmica": 4,
-                "predavanja": 0,
-                "vjezbe": 0,
+                "predavanja": 1,
+                "vjezbe": 1,
                 "index": 12349
             },
             {
@@ -554,8 +536,8 @@
             },
             {
                 "sedmica": 7,
-                "predavanja": 3,
-                "vjezbe": 2,
+                "predavanja": 2,
+                "vjezbe": 1,
                 "index": 12349
             }
         ],
@@ -564,7 +546,8 @@
         "brojVjezbiSedmicno": 2
     },
     {
-        "studenti": [{
+        "studenti": [
+            {
                 "ime": "Jalal Romano",
                 "index": 18875
             },
@@ -589,21 +572,22 @@
                 "index": 12349
             }
         ],
-        "prisustva": [{
+        "prisustva": [
+            {
                 "sedmica": 1,
-                "predavanja": 3,
-                "vjezbe": 2,
+                "predavanja": 1,
+                "vjezbe": 1,
                 "index": 12346
             },
             {
                 "sedmica": 3,
-                "predavanja": 3,
-                "vjezbe": 2,
+                "predavanja": 1,
+                "vjezbe": 0,
                 "index": 12346
             },
             {
                 "sedmica": 4,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 1,
                 "index": 12346
             },
@@ -621,11 +605,10 @@
             },
             {
                 "sedmica": 7,
-                "predavanja": 0,
+                "predavanja": 1,
                 "vjezbe": 0,
                 "index": 12346
             },
-            
             {
                 "sedmica": 1,
                 "predavanja": 3,
@@ -658,7 +641,7 @@
             },
             {
                 "sedmica": 6,
-                "predavanja": 2,
+                "predavanja": 1,
                 "vjezbe": 2,
                 "index": 12345
             },
@@ -668,7 +651,6 @@
                 "vjezbe": 2,
                 "index": 12345
             },
-    
             {
                 "sedmica": 1,
                 "predavanja": 3,
@@ -677,14 +659,14 @@
             },
             {
                 "sedmica": 2,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 1,
                 "index": 12347
             },
             {
                 "sedmica": 3,
-                "predavanja": 3,
-                "vjezbe": 0,
+                "predavanja": 1,
+                "vjezbe": 1,
                 "index": 12347
             },
             {
@@ -695,7 +677,7 @@
             },
             {
                 "sedmica": 5,
-                "predavanja": 2,
+                "predavanja": 0,
                 "vjezbe": 2,
                 "index": 12347
             },
@@ -707,12 +689,10 @@
             },
             {
                 "sedmica": 7,
-                "predavanja": 2,
+                "predavanja": 1,
                 "vjezbe": 0,
                 "index": 12347
             },
-    
-    
             {
                 "sedmica": 1,
                 "predavanja": 1,
@@ -750,18 +730,9 @@
                 "index": 18875
             },
             {
-                "sedmica": 7,
-                "predavanja": 1,
-                "vjezbe": 2,
-                "index": 18875
-            },
-    
-    
-    
-            {
                 "sedmica": 1,
-                "predavanja": 0,
-                "vjezbe": 2,
+                "predavanja": 1,
+                "vjezbe": 1,
                 "index": 12348
             },
             {
@@ -772,8 +743,8 @@
             },
             {
                 "sedmica": 3,
-                "predavanja": 3,
-                "vjezbe": 2,
+                "predavanja": 2,
+                "vjezbe": 0,
                 "index": 12348
             },
             {
@@ -796,13 +767,10 @@
             },
             {
                 "sedmica": 7,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 0,
                 "index": 12348
             },
-    
-    
-    
             {
                 "sedmica": 1,
                 "predavanja": 2,
@@ -816,12 +784,6 @@
                 "index": 12349
             },
             {
-                "sedmica": 4,
-                "predavanja": 0,
-                "vjezbe": 0,
-                "index": 12349
-            },
-            {
                 "sedmica": 5,
                 "predavanja": 3,
                 "vjezbe": 2,
@@ -829,20 +791,31 @@
             },
             {
                 "sedmica": 6,
-                "predavanja": 3,
+                "predavanja": 2,
                 "vjezbe": 2,
                 "index": 12349
             },
             {
                 "sedmica": 7,
-                "predavanja": 3,
-                "vjezbe": 2,
+                "predavanja": 2,
+                "vjezbe": 1,
                 "index": 12349
+            },
+            {
+                "sedmica": "3",
+                "predavanja": 1,
+                "vjezbe": 0,
+                "index": "12349"
+            },
+            {
+                "sedmica": "2",
+                "predavanja": 2,
+                "vjezbe": 2,
+                "index": "12346"
             }
         ],
         "predmet": "Automati i formalni jezici",
         "brojPredavanjaSedmicno": 3,
         "brojVjezbiSedmicno": 2
     }
-
 ]

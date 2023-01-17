@@ -71,7 +71,17 @@ const PoziviAjax = (()=>{
 
     //prisustvo ima oblik {sedmica:N,predavanja:P,vjezbe:V}
     function impl_postPrisustvo(naziv,index,prisustvo,fnCallback){
-
+        var ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState == 4 && ajax.status == 200){
+                var data = JSON.parse(ajax.responseText);
+                fnCallback(null,data.odgovor);
+            }
+            else fnCallback(ajax.status,null);
+        }
+        ajax.open("POST", "/predmeti/" + naziv + "/student/" + index, true);
+        ajax.setRequestHeader("Content-Type", "application/json");
+        ajax.send(JSON.stringify(prisustvo));
     }
 
     return{
