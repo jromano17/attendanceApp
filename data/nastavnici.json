@@ -17,9 +17,8 @@
             "password_hash": "PASSWORDHASH"
         },
         "predmeti": [
-            "ASP",
-            "UUP",
-            "TP"
+            "Razvoj programskih rješenja",
+            "Automati i formalni jezici"
         ]
     },
     {
@@ -28,7 +27,8 @@
             "password_hash": "PASSWORDHASH2"
         },
         "predmeti": [
-            "Osnove elektrotehnike"
+            "Logički dizajn",
+            "Razvoj programskih rješenja"
         ]
     }
 ]
