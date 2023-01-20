@@ -135,6 +135,7 @@ function iscrtaj(divRef, podaci,trenutna) {
 let TabelaPrisustvo = function (divRef, podaci) {
     var zadnjaUnesenaSedmica = 0;
     var trenutnaSedmica;
+    console.log(podaci);
     for(let i = 0; i<podaci.prisustva.length; i++){
         if(podaci.prisustva[i].sedmica>zadnjaUnesenaSedmica) zadnjaUnesenaSedmica = podaci.prisustva[i].sedmica;
     }

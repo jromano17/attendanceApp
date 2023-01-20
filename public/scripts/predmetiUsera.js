@@ -36,8 +36,10 @@ function prikaziPrisustvo(nazivPredmeta){
         else if(data==null) console.log("error");
         else{
             let div = document.getElementById("divSadrzaj");
-            console.log("preUse:" + data);
-            TabelaPrisustvo(div,data.lista);
+            //console.log("preUse:" + data);
+            //console.log(data.lista);
+            console.log(data.lista);
+            TabelaPrisustvo(div,data["lista"]);
         }
     });
 }
