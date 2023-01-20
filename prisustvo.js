@@ -10,12 +10,12 @@ module.exports = function(sequelize,DataTypes){
         },
         predavanja: {
             type: Sequelize.INTEGER,
-            allowNull: false,
+            //allowNull: false,
             field: 'predavanja'
         },
         vjezbe: {
             type: Sequelize.INTEGER,
-            allowNull: false,
+            //allowNull: false,
             field: 'vjezbe'
         }
         })

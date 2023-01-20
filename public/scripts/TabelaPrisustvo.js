@@ -4,12 +4,12 @@ function iscrtaj(divRef, podaci,trenutna) {
     var nizUpisanihSedmica = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     for(let i = 0; i<podaci.prisustva.length; i++){
         if(podaci.studenti.findIndex((el) => {return el.index == podaci.prisustva[i].index;})==-1)
-            return "Podaci o prisustvu nisu validni!";
+            return {htmlKod: "Podaci o prisustvu nisu validni!"};
         nizUpisanihSedmica[podaci.prisustva[i].sedmica-1] = 1;
     }
     for(let i = 1; i<nizUpisanihSedmica.length-1;i++){
         if(nizUpisanihSedmica[i]==0 && nizUpisanihSedmica[i-1]==1 && nizUpisanihSedmica[i+1]==1)
-            return "Podaci o prisustvu nisu validni!";
+            return {htmlKod: "Podaci o prisustvu nisu validni!"};
     }
     var brojSedmica = 0;
     for(let i = 0; i<podaci.prisustva.length; i++){
@@ -42,7 +42,7 @@ function iscrtaj(divRef, podaci,trenutna) {
 
         for(let k = 0; k<podaci.studenti.length; k++){
             if(i!=k && podaci.studenti[i].index == podaci.studenti[k].index)
-                return "Podaci o prisustvu nisu validni!";
+                return {htmlKod: "Podaci o prisustvu nisu validni!"};
         }
         
 
@@ -63,7 +63,7 @@ function iscrtaj(divRef, podaci,trenutna) {
                 continue;
             }
             if(brojac>1 || podaci.prisustva[indeksZaProcente].predavanja>podaci.brojPredavanjaSedmicno || podaci.prisustva[indeksZaProcente].vjezbe>podaci.brojVjezbiSedmicno  || podaci.prisustva[indeksZaProcente].predavanja<0 || podaci.prisustva[indeksZaProcente].vjezbe<0)
-                return "Podaci o prisustvu nisu validni!";
+                return {htmlKod: "Podaci o prisustvu nisu validni!"};
             var casovaPrisutan = podaci.prisustva[indeksZaProcente].predavanja + podaci.prisustva[indeksZaProcente].vjezbe;
             var posto = Math.floor(100*casovaPrisutan/brojCasova);
             htmlKod += "<td rowspan=\"2\">" + posto + "%" + "</td>";
@@ -90,7 +90,7 @@ function iscrtaj(divRef, podaci,trenutna) {
                 continue;
             }
             if(brojac>1 || podaci.prisustva[indeksZaProcente].predavanja>podaci.brojPredavanjaSedmicno || podaci.prisustva[indeksZaProcente].vjezbe>podaci.brojVjezbiSedmicno  || podaci.prisustva[indeksZaProcente].predavanja<0 || podaci.prisustva[indeksZaProcente].vjezbe<0)
-                return "Podaci o prisustvu nisu validni!";
+                return {htmlKod: "Podaci o prisustvu nisu validni!"};
             var casovaPrisutan = podaci.prisustva[indeksZaProcente].predavanja + podaci.prisustva[indeksZaProcente].vjezbe;
             var posto = Math.floor(100*casovaPrisutan/brojCasova);
             htmlKod += "<td rowspan=\"2\">" + posto + "%" + "</td>";
@@ -135,7 +135,6 @@ function iscrtaj(divRef, podaci,trenutna) {
 let TabelaPrisustvo = function (divRef, podaci) {
     var zadnjaUnesenaSedmica = 0;
     var trenutnaSedmica;
-    console.log(podaci);
     for(let i = 0; i<podaci.prisustva.length; i++){
         if(podaci.prisustva[i].sedmica>zadnjaUnesenaSedmica) zadnjaUnesenaSedmica = podaci.prisustva[i].sedmica;
     }
@@ -172,7 +171,7 @@ let TabelaPrisustvo = function (divRef, podaci) {
 
     var htmlBilder = iscrtaj(divRef,podaci,trenutnaSedmica).htmlKod;
     divRef.innerHTML = htmlBilder; 
-    if(htmlBilder=="Podaci o prisustvu nisu validni!") return;
+    if(htmlBilder=="Podaci o prisustvu nisu validni!") {console.log("nijevalidno");return;}
     let leftBtn = document.createElement("button");
     leftBtn.innerHTML ="<i class=\"fa-solid fa-arrow-left\"></i>";
     leftBtn.onclick = () =>  prethodnaSedmica();

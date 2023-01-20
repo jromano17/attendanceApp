@@ -36,10 +36,7 @@ function prikaziPrisustvo(nazivPredmeta){
         else if(data==null) console.log("error");
         else{
             let div = document.getElementById("divSadrzaj");
-            //console.log("preUse:" + data);
-            //console.log(data.lista);
-            console.log(data.lista);
-            TabelaPrisustvo(div,data["lista"]);
+            TabelaPrisustvo(div,data.lista);
         }
     });
 }
@@ -81,7 +78,7 @@ function obojenoKliknuto(event){
             let div = document.getElementById("divSadrzaj");
 
             var tabela = TabelaPrisustvo(div,data,sedmica);
-            for(let i = 0; i<7-sedmica;i++){
+            for(let i = 0; i<2-sedmica;i++){
                 tabela.prethodnaSedmica();
             }
         }
@@ -114,7 +111,7 @@ function praznoKliknuto(event){
             let div = document.getElementById("divSadrzaj");
 
             var tabela = TabelaPrisustvo(div,data,sedmica);
-            for(let i = 0; i<7-sedmica;i++){
+            for(let i = 0; i<2-sedmica;i++){
                 tabela.prethodnaSedmica();
             }
         }

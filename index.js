@@ -92,7 +92,6 @@ app.get('/predmeti',function(req,res){
 app.get('/predmeti/:naziv',function(req,res){
     var nazivPredmeta = req.params.naziv;
     var lista = {prisustva:[],studenti:[]};
-    //var svaPrisustva = JSON.parse(fs.readFileSync('data/prisustva.json', 'utf-8'));
     db.predmet.findOne({where:{naziv_predmeta:nazivPredmeta}}).then(function(predmet){
         lista.predmet = predmet.naziv_predmeta;
         lista.brojPredavanjaSedmicno = predmet.broj_predavanja_sedmicno;
@@ -106,23 +105,22 @@ app.get('/predmeti/:naziv',function(req,res){
                         vjezbe:prisustvaBaze[i].vjezbe,
                         index:student.index
                     });
-                    lista.studenti.push({
-                        ime:student.ime,
-                        index:student.index
-                    });
                     if(i==prisustvaBaze.length-1){
-                        res.json(JSON.stringify({lista}));
+                        db.student.findAll().then(function(s){
+                            for (let j=0;j<s.length;j++){
+                                lista.studenti.push({
+                                    ime:s[j].ime,
+                                    index:s[j].index
+                                });
+                            }
+                            res.json({lista:JSON.stringify(lista)});
+                        });
                     }
                 });
-
             }
         });
     });
 
-
-    /*for (let i=0;i<svaPrisustva.length;i++){
-        if(svaPrisustva[i].predmet==nazivPredmeta) res.json({lista:svaPrisustva[i]});
-    }*/
 })
 
 app.post('/predmeti/:naziv/student/:index',function(req,res){
@@ -133,28 +131,50 @@ app.post('/predmeti/:naziv/student/:index',function(req,res){
     var predavanja = req.body.predavanja;
     var svaPrisustva = JSON.parse(fs.readFileSync('data/prisustva.json', 'utf-8'));
     var indeksPredmeta = -1;
-    var unesenoPrisustvo = false;
-    var zabiljezenaPrisustvaPredmeta;
-    for (let i=0;i<svaPrisustva.length;i++){
-        if(svaPrisustva[i].predmet==nazivPredmeta){
-            indeksPredmeta = i;
-            zabiljezenaPrisustvaPredmeta = svaPrisustva[i].prisustva;
-            for (let j=0;j<zabiljezenaPrisustvaPredmeta.length;j++){
-                if(zabiljezenaPrisustvaPredmeta[j].index==index && zabiljezenaPrisustvaPredmeta[j].sedmica==sedmica) {
-                    unesenoPrisustvo = true;
-                    zabiljezenaPrisustvaPredmeta[j].predavanja = predavanja;                   
-                    zabiljezenaPrisustvaPredmeta[j].vjezbe = vjezbe;                   
-                }
-            }
-            break;
-        } 
-    }
-    if(!unesenoPrisustvo){
-        zabiljezenaPrisustvaPredmeta.push({sedmica:sedmica, predavanja: predavanja, vjezbe: vjezbe, index:index});
-    }
-    var noviJson = JSON.stringify(svaPrisustva);
-    fs.writeFileSync('data/prisustva.json', noviJson);
-    res.json({odgovor:svaPrisustva[indeksPredmeta]});
+
+    
+    db.predmet.findOne({where:{naziv_predmeta:nazivPredmeta}}).then(function(predm){
+        var idPredmeta = predm.id;
+        db.student.findOne({where:{index:index}}).then(function(stud){
+            var idStudenta = stud.id;
+            db.prisustvo.findOrCreate({where:{sedmica:sedmica,studentId:idStudenta,predmetId:idPredmeta}}).then(([pris, created]) => {
+
+                db.prisustvo.update({ predavanja: predavanja, vjezbe: vjezbe }, { where: { id: pris.id }}).then(function(kraj){
+
+                    var lista = {prisustva:[],studenti:[]};
+                    lista.predmet = predm.naziv_predmeta;
+                    lista.brojPredavanjaSedmicno = predm.broj_predavanja_sedmicno;
+                    lista.brojVjezbiSedmicno = predm.broj_vjezbi_sedmicno;
+                    db.prisustvo.findAll({where:{predmetId:predm.id}}).then(function(prisustvaBaze){
+                    for (let i=0;i<prisustvaBaze.length;i++){
+                            db.student.findOne({where:{id:prisustvaBaze[i].studentId}}).then(function(student){
+                                lista.prisustva.push({
+                                    sedmica:prisustvaBaze[i].sedmica, 
+                                    predavanja: prisustvaBaze[i].predavanja,
+                                    vjezbe:prisustvaBaze[i].vjezbe,
+                                    index:student.index
+                                });
+                                if(i==prisustvaBaze.length-1){
+                                    db.student.findAll().then(function(s){
+                                        for (let j=0;j<s.length;j++){
+                                            lista.studenti.push({
+                                                ime:s[j].ime,
+                                                index:s[j].index
+                                            });
+                                        }
+                                        res.json({odgovor:JSON.stringify(lista)});
+                                    });
+                                }
+                            });
+                        }
+                    });
+
+                });
+                
+              });
+        });
+    });
+
 })
 
 app.listen(3000);

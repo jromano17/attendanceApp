@@ -58,7 +58,7 @@ function inicializacija(){
             var s2p3v2=prisustva.filter(function(p){return p.predavanja==3 && p.vjezbe==2 && p.sedmica==2})[0];
             var s2p3v1=prisustva.filter(function(p){return p.predavanja==3 && p.vjezbe==1 && p.sedmica==2})[0];
             var s2p3v0=prisustva.filter(function(p){return p.predavanja==3 && p.vjezbe==0 && p.sedmica==2})[0];
-            var s2p2v2=prisustva.filter(function(p){return p.predavanja==2 && p.vjezbe==2 && p.sedmica==2})[0];
+            //var s2p2v2=prisustva.filter(function(p){return p.predavanja==2 && p.vjezbe==2 && p.sedmica==2})[0];
             var s2p2v1=prisustva.filter(function(p){return p.predavanja==2 && p.vjezbe==1 && p.sedmica==2})[0];
             var s2p2v0=prisustva.filter(function(p){return p.predavanja==2 && p.vjezbe==0 && p.sedmica==2})[0];
             var s2p1v2=prisustva.filter(function(p){return p.predavanja==1 && p.vjezbe==2 && p.sedmica==2})[0];
@@ -76,7 +76,7 @@ function inicializacija(){
             );
             studentiListaPromisa.push(
                 db.student.create({ime:'Alma Almic',index:12345}).then(function(s){
-                    s.setPrisustva([s1p3v0,s1p2v2,s2p3v0,s2p2v2]);
+                    s.setPrisustva([s1p3v0,s1p2v2,s2p3v0]);
                     return new Promise(function(resolve,reject){resolve(s);});
                 })
             );
@@ -117,7 +117,7 @@ function inicializacija(){
                 );
                 predmetiListaPromisa.push(
                     db.predmet.create({naziv_predmeta:'Automati i formalni jezici', broj_predavanja_sedmicno:3,broj_vjezbi_sedmicno:2}).then(function(p){
-                        p.setPrisustva([s1p3v1,s1p2v2,s1p2v0,s1p1v1,s1p0v2,s1p0v0,s2p3v1,s2p2v2,s2p2v0,s2p1v1,s2p0v2,s2p0v0]);
+                        p.setPrisustva([s1p3v1,s1p2v2,s1p2v0,s1p1v1,s1p0v2,s1p0v0,s2p3v1,s2p2v0,s2p1v1,s2p0v2,s2p0v0]);
                         return new Promise(function(resolve,reject){resolve(p);});
                     })
                 );

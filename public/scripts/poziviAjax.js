@@ -1,16 +1,14 @@
 const PoziviAjax = (()=>{
 
-    //fnCallback u svim metodama se poziva kada stigne odgovor sa servera putem Ajax-a
-    // svaki callback kao parametre ima error i data, error je null ako je status 200 i data je tijelo odgovora
-    // ako postoji greška poruka se prosljeđuje u error parametar callback-a, a data je tada null
 
     function impl_getPredmet(naziv,fnCallback){
         var ajax = new XMLHttpRequest();
         ajax.onreadystatechange = function() {
             if (ajax.readyState == 4 && ajax.status == 200){
                 var data = JSON.parse(ajax.responseText);
+                data = {lista:JSON.parse(data.lista)};
                 fnCallback(null,data);
-            }
+             }
             else fnCallback(ajax.status,null);
         }
         ajax.open("GET", "/predmeti/"+naziv, true);
@@ -75,6 +73,7 @@ const PoziviAjax = (()=>{
         ajax.onreadystatechange = function() {
             if (ajax.readyState == 4 && ajax.status == 200){
                 var data = JSON.parse(ajax.responseText);
+                data = {odgovor:JSON.parse(data.odgovor)};
                 fnCallback(null,data.odgovor);
             }
             else fnCallback(ajax.status,null);
