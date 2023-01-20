@@ -73,8 +73,7 @@ function obojenoKliknuto(event){
     }
     PoziviAjax.postPrisustvo(naziv,indeks,{sedmica:sedmica,predavanja:predavanja,vjezbe:vjezbe},function(error,data){
         if(error) console.log(error);
-        else if(data==null) console.log("error");
-        else {
+        else if(data!=null) {
             let div = document.getElementById("divSadrzaj");
 
             var tabela = TabelaPrisustvo(div,data,sedmica);

@@ -129,9 +129,6 @@ app.post('/predmeti/:naziv/student/:index',function(req,res){
     var sedmica = req.body.sedmica;
     var vjezbe = req.body.vjezbe;
     var predavanja = req.body.predavanja;
-    var svaPrisustva = JSON.parse(fs.readFileSync('data/prisustva.json', 'utf-8'));
-    var indeksPredmeta = -1;
-
     
     db.predmet.findOne({where:{naziv_predmeta:nazivPredmeta}}).then(function(predm){
         var idPredmeta = predm.id;
